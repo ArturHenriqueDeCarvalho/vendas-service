@@ -52,6 +52,22 @@ make run
 O endpoint de health check customizado valida se todos os componentes estão respondendo:
 👉 [http://localhost:8080/health](http://localhost:8080/health)
 
+### 2. Rotas de Negócio (CRUD Completo)
+Utilize o Swagger UI para testar todas as rotas da API:
+👉 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+*   `POST /v1/orders`: Cria um novo pedido.
+*   `GET /v1/orders`: Lista os pedidos ativos.
+*   `GET /v1/orders/{id}`: Busca um pedido pelo ID.
+*   `PUT /v1/orders/{id}`: Atualiza um pedido.
+*   `DELETE /v1/orders/{id}`: Inativa um pedido (**Soft Delete** - o dado permanece no banco com status `CANCELED`).
+
+### 3. Popular o Banco Automaticamente (Seed)
+Para facilitar os testes, abra outro terminal (enquanto a aplicação roda) e digite o comando abaixo para criar 10 pedidos aleatórios instantaneamente:
+```bash
+make seed
+```
+
 ### 2. Criar um Pedido (Venda)
 Utilize o Swagger UI para testar a criação de pedidos:
 👉 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)

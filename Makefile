@@ -2,7 +2,7 @@
 MVN = mvnw
 DOCKER_COMPOSE = docker-compose
 
-.PHONY: help up down build run test clean logs restart
+.PHONY: help up down build run test clean logs restart seed
 
 help:
 	@echo "Comandos disponíveis:"
@@ -14,6 +14,7 @@ help:
 	@echo "  make clean   - Limpa a pasta target"
 	@echo "  make logs    - Mostra os logs dos containers"
 	@echo "  make restart - Reinicia os containers e a aplicação"
+	@echo "  make seed    - Cria 10 pedidos de teste na API automaticamente"
 
 up:
 	$(DOCKER_COMPOSE) up -d
@@ -37,3 +38,6 @@ logs:
 	$(DOCKER_COMPOSE) logs -f
 
 restart: down up run
+
+seed:
+	bash seed.sh

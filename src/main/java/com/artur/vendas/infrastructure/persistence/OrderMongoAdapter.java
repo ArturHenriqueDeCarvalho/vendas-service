@@ -43,4 +43,19 @@ public class OrderMongoAdapter implements OrderGateway {
         log.info("[Infrastructure] Saving status '{}' to Redis for Order ID: {}", status, id);
         redisTemplate.opsForValue().set("order:status:" + id, status, Duration.ofMinutes(5));
     }
+
+    @Override
+    public java.util.Optional<Order> findById(String id) {
+        log.info("[Infrastructure] Fetching order from MongoDB by ID: {}", id);
+        return repository.findById(id).map(mapper::toDomain);
+    }
+
+    @Override
+    public java.util.List<Order> findAllActive() {
+        log.info("[Infrastructure] Fetching all active orders from MongoDB...");
+        return repository.findByStatusNot("CANCELED")
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
+    }
 }
