@@ -1,6 +1,6 @@
 # Vendas Service - Clean Architecture MVP
 
-Este é um microsserviço de processamento de vendas desenvolvido com as melhores práticas de **Clean Architecture** e **Clean Code**. O projeto demonstra a integração desacoplada entre lógica de negócio purista e tecnologias modernas de infraestrutura.
+Este é um microsserviço de processamento de vendas desenvolvido com as boas práticas de **Clean Architecture** e **Clean Code**. O projeto demonstra a integração desacoplada entre regra de negócio e as tecnologias de infraestrutura.
 
 ## 🚀 Tecnologias Utilizadas (Stack)
 
@@ -68,13 +68,24 @@ Para facilitar os testes, abra outro terminal (enquanto a aplicação roda) e di
 make seed
 ```
 
+### 2. Criar um Pedido (Venda)
+Utilize o Swagger UI para testar a criação de pedidos:
+👉 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+
+**Exemplo de Payload (POST /v1/orders):**
+```json
+{
+  "customerName": "Teste",
+  "totalValue": 1500.0
+}
+```
 ---
 
-## 🔍 Como Validar a Stack
+## 🔍 Como Validar
 
 Para confirmar que todas as tecnologias estão sendo utilizadas corretamente:
 
-### 1. MongoDB (Persistência)
+### 1. MongoDB Compass
 *   Use o **MongoDB Compass** e conecte em `mongodb://localhost:27017`.
 *   Verifique a criação do banco `vendas_db` e da coleção `orders`.
 
