@@ -1,4 +1,4 @@
-# Vendas Service - Clean Architecture MVP
+# Vendas Service
 
 Este é um microsserviço de processamento de vendas desenvolvido com as boas práticas de **Clean Architecture** e **Clean Code**. O projeto demonstra a integração desacoplada entre regra de negócio e as tecnologias de infraestrutura.
 
